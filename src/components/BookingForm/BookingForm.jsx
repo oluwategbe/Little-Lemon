@@ -1,29 +1,76 @@
-import React, { useState } from 'react'
+import React, { useReducer, useState } from 'react'
 import "./index.css"
 
-const BookingForm = () => {
+const BookingForm = ({availableTimes, initializeTimes}) => {
 
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
-  const [guests, setGuests] = useState("");
-  const [occasion, setOccasion] = useState("");
-  
-  const availableTimes = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+  const [formData, setFormData] = useState({
+    date: "",
+    time: "",
+    guests: "",
+    occasion: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleDateChange = (e) => {
+    setFormData({
+      ...formData,
+      date: e.target.value
+    });
+    initializeTimes(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
 
   return (
-    <form style={{display: "grid", maxWidth: "200px", gap: "20px"}}>
+    <form onSubmit={handleSubmit} style={{display: "grid", maxWidth: "200px", gap: "20px"}}>
       <label htmlFor="res-date">Choose date</label>
-      <input type="date" id="res-date" value={date} onChange={(e) => setDate(e.target.value)}/>
+      <input
+        type="date"
+        id="res-date"
+        value={formData.date}
+        onChange={handleDateChange}
+        name="date"
+      />
       <label htmlFor="res-time">Choose time</label>
-      <select id="res-time " value={time} onChange={(e) => setTime(e.target.value)}>
+      <select
+        id="res-time "
+        value={formData.time}
+        onChange={handleChange}
+        name="time"
+      >
         {availableTimes.map((time) => (
-          <option key={time} value={time}>{time}</option>
+          <option key={time} value={time}>
+            {time}
+          </option>
         ))}
       </select>
       <label htmlFor="guests">Number of guests</label>
-      <input type="number" placeholder="1" min="1" max="10" id="guests" value={guests} onChange={(e) => setGuests(e.target.value)}/>
+      <input
+        type="number"
+        placeholder="1"
+        min="1"
+        max="10"
+        id="guests"
+        value={formData.guests}
+        name="guests"
+        onChange={handleChange}
+      />
       <label htmlFor="occasion">Occasion</label>
-      <select id="occasion" value={occasion} onChange={(e) => setOccasion(e.target.value)}>
+      <select
+        id="occasion"
+        value={formData.occasion}
+        name="occasion"
+        onChange={handleChange}
+      >
           <option>Birthday</option>
           <option>Engagement</option>
           <option>Anniversary</option>
