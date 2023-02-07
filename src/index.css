@@ -11,3 +11,110 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+h1{
+  font-size: 40px;
+  font-weight: 500;
+  margin: 0;
+}
+h2{
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0;
+}
+h3{
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+}
+h4{
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+}
+
+button{
+  background: #F4CE14;
+  padding: 1rem 2rem;
+  border-radius: 16px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+button:hover{
+  background: #EDEFEE;
+  color: #EE9972;
+}
+section{
+  padding: 2rem 20%;
+}
+.flex{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+@media screen and (max-width: 992px) {
+  section{
+    padding: 2rem 10%;
+  }
+  .flex{
+    gap: 2rem;
+  }
+  h1{
+    font-size: 36px;
+  }
+  h2{
+    font-size: 22px;
+  }
+  h3{
+    font-size: 16px;
+  }
+  h4{
+    font-size: 12px;
+  }
+  button{
+    padding: 0.7rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  button{
+    padding: 0.5rem 1rem;
+  }
+  section{
+    padding: 2rem 5%;
+  }
+  h1{
+    font-size: 24px;
+  }
+  h2{
+    font-size: 18px;
+  }
+  h3{
+    font-size: 14px;
+  }
+  h4{
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 572px) {
+  section{
+    padding: 2rem 5%;
+  }
+  .flex{
+    gap: 1rem;
+  }
+  h1{
+    font-size: 20px;
+  }
+  h2{
+    font-size: 16px;
+  }
+  h3{
+    font-size: 12px;
+  }
+  button{
+    padding: 0.5rem;
+    border-radius: 8px;
+  }
+}
