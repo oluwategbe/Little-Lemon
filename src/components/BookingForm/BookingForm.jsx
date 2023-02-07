@@ -23,6 +23,7 @@ const BookingForm = ({availableTimes, initializeTimes}) => {
       date: e.target.value
     });
     initializeTimes(e.target.value);
+    console.log(e.target.value);
   };
 
   const handleSubmit = (e) => {

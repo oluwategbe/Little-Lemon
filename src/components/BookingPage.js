@@ -28,6 +28,7 @@ const BookingPage = () => {
 
   return (
     <div>
+      Book now
       <BookingForm availableTimes={availableTimes.availableTimes} initializeTimes={initializeTimes}/>
     </div>
   )
