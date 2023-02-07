@@ -1,0 +1,28 @@
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  position: relative;
+  gap: 2rem;
+}
+
+.ham{
+  display: none;
+  position: absolute;
+  top: 1.5rem;
+  left: 1rem;
+  z-index: 99;
+}
+.shop{
+  display: none;
+}
+@media screen and (max-width: 768px){
+  .header{
+    justify-content: space-around;
+    padding: 1rem 2rem;
+  }
+  .shop, .ham{
+    display: flex;
+  }
+}
