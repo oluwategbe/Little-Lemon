@@ -1,7 +1,7 @@
 import React, { useReducer, useState } from 'react'
 import "./index.css"
 
-const BookingForm = ({availableTimes, initializeTimes}) => {
+const BookingForm = ({availableTimes, initializeTimes, submitForm}) => {
 
   const [formData, setFormData] = useState({
     date: "",
@@ -23,12 +23,11 @@ const BookingForm = ({availableTimes, initializeTimes}) => {
       date: e.target.value
     });
     initializeTimes(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    submitForm(formData);
   };
 
   return (

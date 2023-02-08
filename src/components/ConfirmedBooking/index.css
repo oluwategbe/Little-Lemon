@@ -1,0 +1,18 @@
+.confirm{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.message{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #495E57;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
