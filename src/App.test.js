@@ -44,3 +44,25 @@ describe('updateTimes', () => {
     expect(result).toEqual(['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']);
   });
 });
+
+describe("Booking form", () => {
+  it("should display the correct HTML5 validation attributes", () => {
+    const { getByLabelText } = render(<BookingForm />);
+
+    const dateField = getByLabelText("Choose date");
+    expect(dateField).toHaveAttribute("type", "date");
+    expect(dateField).toHaveAttribute("required");
+
+    const timeField = getByLabelText("Choose time");
+    expect(timeField).toHaveAttribute("type", "time");
+    expect(timeField).toHaveAttribute("required");
+
+    const guestsField = getByLabelText("Number of Guests");
+    expect(guestsField).toHaveAttribute("type", "number");
+    expect(guestsField).toHaveAttribute("required");
+
+    const occasionField = getByLabelText("Occasion");
+    expect(occasionField).toHaveAttribute("type", "text");
+    expect(occasionField).toHaveAttribute("required");
+  }
+)})
