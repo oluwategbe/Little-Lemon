@@ -1,6 +1,7 @@
 import React from 'react'
 import hero from "../../assets/hero.png"
 import "./hero.css"
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -9,7 +10,9 @@ const Hero = () => {
         <h1>Little Lemon</h1>
         <h2>Chicago</h2>
         <h4>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</h4>
-        <button>Reserve a Table</button>
+        <Link to="/booking" style={{textDecoration: 'none'}}>
+          <button>Reserve a Table</button>
+        </Link>
       </div>
       <img className="heroPic" src={hero} alt="hero"/>
     </section>

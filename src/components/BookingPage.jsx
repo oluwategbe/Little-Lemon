@@ -1,17 +1,13 @@
-import React, { useEffect, useReducer, useState } from 'react'
+import React, { useReducer } from 'react'
 import { useNavigate } from 'react-router-dom';
+import Header from "./Header"
 import BookingForm from './BookingForm/BookingForm'
+import footerLogo from "../assets/footerLogo.PNG";
+import "../booking.css"
 
 const BookingPage = () => {
 
-  // useEffect(() => {
-  //   fetch(`https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js`)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //     })
-  //     .catch((error) => console.log(error));
-  // }, []);
+  const navigate = useNavigate();
 
   const initialState = {
     availableTimes: [],
@@ -73,8 +69,6 @@ const BookingPage = () => {
   //   dispatch({ type: 'UPDATE_TIMES', payload: times });
   // };
 
-  const navigate = useNavigate();
-
   const submitForm = (formData) => {
     const isSubmitted = submitAPI(formData);
     if(isSubmitted){
@@ -84,7 +78,7 @@ const BookingPage = () => {
 
   const initializeTimes = (date) => {
     const today = new Date();
-    const times = fetchAPI(today);
+    // const times = fetchAPI(today);
     dispatch({ type: 'UPDATE_TIMES', payload: today });
     // console.log(availableTimes + ' available times');
     // return {
@@ -95,10 +89,21 @@ const BookingPage = () => {
   const [availableTimes, dispatch] = useReducer(updateTimes, initialState);
 
   return (
-    <div>
-      Book now
-      <BookingForm availableTimes={availableTimes.availableTimes} initializeTimes={initializeTimes} submitForm={submitForm}/>
-    </div>
+    <>
+      <Header />
+      <div className="booking">
+        <div className="bookingHero">
+          <div className="text">
+            <h1>Reserve a table</h1>
+            <h3>Choose a table at your own convenience, for any ocassion</h3>
+          </div>
+          <img src={footerLogo} alt="logo" className="pic" />
+        </div>
+        <div className="bookingForm">
+          <BookingForm availableTimes={availableTimes.availableTimes} initializeTimes={initializeTimes} submitForm={submitForm}/>
+        </div>
+      </div>
+    </>
   )
 }
 
